@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Asynchronous Operation with promise </h2>
+  <div id="demo"> </div>
+  
+  <script>
+    function fetchData(){
+      return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          const data = {
+            message: "Job well done"
+          }
+          resolve(data);
+        }, 2000);
+      })
+    }
+    fetchData()
+    .then(data=>{
+      document.getElementById("demo").textContent = data.message;
+    })
+    .catch(error=>{
+      alert("Error fetching data: ", error)
+    })
+    
+  </script>
+  
+</body>
+</html>
